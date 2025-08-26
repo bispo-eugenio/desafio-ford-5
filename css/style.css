@@ -39,10 +39,6 @@ div#carousel img {
     animation: fadeIn 0.5s ease-in normal;
 }
 
-div#carousel-title a {
-    text-decoration: none;
-}
-
 div#carousel-title  {
     display: block;
     text-align: center;
@@ -52,6 +48,7 @@ div#carousel-title  {
 }
 
 a.carousel-title__link {
+    text-decoration: none;
     animation: fadeIn 0.5s ease-in normal;
 }
 

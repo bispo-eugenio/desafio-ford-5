@@ -1,7 +1,3 @@
-
-
-//carousel
-
 //Array storage class
 let carouselArr = [];
 
@@ -47,18 +43,18 @@ class Carousel {
         const anchorCollection = document.getElementsByClassName("carousel-title__link");
         const imgCollection = document.getElementsByClassName("carousel-title__image");
 
-        if(imgCollection.length >= 1) 
-            imgCollection[0].remove()
-        if(anchorCollection.length > 0)
-            anchorCollection[0].remove()
+        if(imgCollection.length >= 1) imgCollection[0].remove()
+        if(anchorCollection.length >= 1) anchorCollection[0].remove()
 
         img.src = arr[sequece].image;
         anchor.textContent = arr[sequece].title
+        anchor.href = arr[sequece].url
         
         elementId.appendChild(img)
         elementIDTitle.appendChild(anchor)
 
         Carousel._sequence += 1;
+
         if (sequece === (length - 1))
             Carousel._sequence = 0
         } 
