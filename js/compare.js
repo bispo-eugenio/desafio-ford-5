@@ -3,7 +3,6 @@
 let carArr = [];
 
 class Car {
-   
 
     constructor(nome, preco, alturaCacamba, alturaVeiculo, alturaSolo, capacidadeCarga, motor, potencia, volumeCacamba, roda, image){
        this.nome = nome;
@@ -33,10 +32,18 @@ function SetCarToCompare(el, carClass) {
    
     if(carClass instanceof Car){       
         if(el.checked){
-                
-            
+            if(carArr.length === 2){
+                alert("Apenas é possível comparar 2 veículo")
+                el.checked = false
+                return
+            }
+            else if (GetCarArrPosition(carArr, carClass) === -1)
+                carArr.push(carClass)        
         } else {
-          
+            //Se for diferente de menos -1 o vai adicionar no array
+            if(GetCarArrPosition(carArr, carClass) !== -1){
+                carArr.splice(GetCarArrPosition(carArr, carClass), 1)
+            }
         } 
     } else {
         throw "You need set a Car Class";
@@ -44,10 +51,10 @@ function SetCarToCompare(el, carClass) {
 }
 
 function ShowCompare() {
-    if(carArr.length < 2) {
+    if(carArr.length < 2 || carArr.length === 1) {
         alert("Precisa marcar 2 carros para apresentar a comparação");
         return;
-    }
+    } 
 
     UpdateCompareTable();
     document.getElementById("compare").style.display = "block";
